@@ -1,5 +1,6 @@
 package com.codingparadox;
 
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -14,9 +15,19 @@ public class Main {
 		System.out.println(ld.calculateDistance("kitten", "sitting"));
 		ld.display();
 */	
+		String word = "kitten";
+		int threshold = 3;
 		SpellChecker spellChecker = new SpellChecker();
-		Map<String, Integer> matches = spellChecker.checkSpelling("kitten");
+
+		Map<String, Integer> words = spellChecker.checkSpelling(word);
+		List<String> matches = spellChecker.match(words, threshold);
+
+		System.out.println(words);
+		System.out.println("Nearest matches to " + word);
 		System.out.println(matches);
+		
+		String matchOnly = spellChecker.matchOnly(words, threshold);
+		System.out.println(matchOnly);
 	}
 
 }
