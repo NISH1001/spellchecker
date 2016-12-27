@@ -51,7 +51,8 @@ public class SpellChecker {
 			int cost = ld.calculateDistance(word, s);
 			result.put(s, cost);
 		}
-		return  result;
+		return Sorter.sort(result);
+		//return  result;
 	}
 	
 	/**

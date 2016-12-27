@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+import com.codingparadox.languagemodel.Dictionary;
 import com.codingparadox.spellchecker.LevenshteinDistance;
 import com.codingparadox.spellchecker.SpellChecker;
 import com.codingparadox.utilities.Math;
@@ -16,8 +17,14 @@ public class Main {
 		ld.display();
 */	
 		String word = "pardx";
-		int threshold = 3;
-		SpellChecker spellChecker = new SpellChecker();
+		Main.testSpelling(word);
+	}
+	
+	public static void testSpelling(String word){
+		Dictionary dictionary = new Dictionary();
+		dictionary.loadFromFile("data/dictionary");
+
+		SpellChecker spellChecker = new SpellChecker(dictionary);
 
 		Map<String, Integer> words = spellChecker.getCostMap(word);
 		List<String> sortedWords = spellChecker.match(word, 0.2);
