@@ -30,7 +30,7 @@ public class Main {
 		List<String> sortedWords = spellChecker.match(word, 0.2);
 		//List<String> matches = spellChecker.match(words, threshold);
 
-		System.out.println("Matching to all the words in dictionary : ");
+		System.out.println("Matching to all the words in dictionary :  ");
 		System.out.println(words);
 		System.out.println(sortedWords);
 		
