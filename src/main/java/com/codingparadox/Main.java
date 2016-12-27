@@ -15,19 +15,18 @@ public class Main {
 		System.out.println(ld.calculateDistance("kitten", "sitting"));
 		ld.display();
 */	
-		String word = "kitten";
+		String word = "pardx";
 		int threshold = 3;
 		SpellChecker spellChecker = new SpellChecker();
 
-		Map<String, Integer> words = spellChecker.checkSpelling(word);
-		List<String> matches = spellChecker.match(words, threshold);
+		Map<String, Integer> words = spellChecker.getCostMap(word);
+		List<String> sortedWords = spellChecker.match(word, 0.2);
+		//List<String> matches = spellChecker.match(words, threshold);
 
+		System.out.println("Matching to all the words in dictionary : ");
 		System.out.println(words);
-		System.out.println("Nearest matches to " + word);
-		System.out.println(matches);
+		System.out.println(sortedWords);
 		
-		String matchOnly = spellChecker.matchOnly(words, threshold);
-		System.out.println(matchOnly);
 	}
 
 }
